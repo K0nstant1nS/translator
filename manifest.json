@@ -17,10 +17,6 @@
         "tabs",
         "storage"
     ],
-    "background": {
-        "service_worker": "./worker.js",
-        "type": "module"
-    },
     "content_scripts": [
         {
             "matches": [

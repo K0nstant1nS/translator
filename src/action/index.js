@@ -3,6 +3,8 @@ const selects = document.querySelectorAll("select");
 const sourceLang = document.getElementById("from");
 const targetLang = document.getElementById("to");
 
+
+
 function setButtonEnabled(button){
     button.disabled = false;
 }
@@ -12,9 +14,17 @@ function setButtonDisabled(button){
 }
 
 
+function selectDisableDuplicated(selects){
+    const [selectFrom, selectTo] = selects;
+    selectTo.querySelectorAll("option").forEach(option=> option.disabled = false)
+    selectTo.querySelector(`[value=${selectFrom.value}]`).disabled = true;
+}
+
+
 selects.forEach(select=>{
     select.addEventListener("change", ()=>{
-        setButtonEnabled(button)
+        setButtonEnabled(button);
+        selectDisableDuplicated(selects)
     })
 });
 
@@ -26,6 +36,13 @@ button.addEventListener("click", (e)=>{
         }
     })
     setButtonDisabled(button)
+})
+
+selectDisableDuplicated(selects);
+
+chrome.storage.get("languages").then(({languages})=>{
+    sourceLang.querySelector(`[value=${languages.from}]`).selected = true;
+    targetLang.querySelector(`[value=${languages.to}]`).selected = true;
 })
 
 
