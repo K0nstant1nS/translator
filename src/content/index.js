@@ -54,7 +54,6 @@ function removeContainer() {
 
 function configurePosition(e){
     const {x, y} = e;
-    const {bottom} = e.target.getBoundingClientRect();
     let res = y + window.pageYOffset
     return {x: x, y: res};
 }
