@@ -40,7 +40,7 @@ button.addEventListener("click", (e)=>{
 
 selectDisableDuplicated(selects);
 
-chrome.storage.get("languages").then(({languages})=>{
+chrome.storage.local.get("languages").then(({languages})=>{
     sourceLang.querySelector(`[value=${languages.from}]`).selected = true;
     targetLang.querySelector(`[value=${languages.to}]`).selected = true;
 })
