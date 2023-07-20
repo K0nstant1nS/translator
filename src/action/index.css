@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+select {
+    box-sizing: border-box;
+    padding: 4px 8px;
+    font-size: 18px;
+}
+
+.title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px
+}
+
+.arrow {
+    width: 40px;
+    height: 40px;
+}
+
+.submit {
+    cursor: pointer;
+    box-sizing: border-box;
+    padding: 10px;
+    background: #086df0;
+    color: white;
+    font-size: 24px;
+    border-radius: 5px;
+}
+
+.submit:disabled {
+    opacity: .5;
+}

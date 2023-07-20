@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <h1 class="title">Choose languages</h1>
+    <div class="container">
+    <select name="sourceLang" id="from">
+        <option value="ru" class="option">Русский</option>
+        <option value="en" class="option" selected>Английский</option>
+        <option value="zh-CN" class="option">Китайский</option>
+        <option value="es-ES" class="option">Испанский</option>
+        <option value="uk" class="option">Украинский</option>
+        <option value="be" class="option">Беларусский</option>
+        <option value="de-1996" class="option">Немецкий</option>
+    </select>
+    <img class="arrow" src="./imgs/icons8-arrow-80.png"/>
+    <select name="targetLang" id="to">
+        <option value="ru" class="option">Русский</option>
+        <option value="en" class="option">Английский</option>
+        <option value="zh-CN" class="option">cn</option>
+        <option value="es-ES" class="option">Испанский</option>
+        <option value="uk" class="option">Украинский</option>
+        <option value="be" class="option">Беларусский</option>
+        <option value="de-1996" class="option">Немецкий</option>
+    </select>
+    </div>
+    <button class="submit" type="submit" disabled>выбрать</button>
+    <script src="./index.js"></script>
+</body>
+</html>
