@@ -1,4 +1,6 @@
 .translate-container-qwsfrfgfewq {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     padding: 5px;
     position: absolute;
@@ -6,4 +8,18 @@
     color: white;
     border-radius: 5px;
     z-index: 9999;
+}
+
+.translate-paragraph {
+    margin: 0;
+}
+
+.translate-list {
+    overflow: hidden;
+    max-height: 0;
+    transition: all 1s linear;
+}
+
+.translate-container-qwsfrfgfewq:hover .translate-list {
+    max-height: 100vh;
 }

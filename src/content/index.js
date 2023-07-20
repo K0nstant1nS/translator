@@ -2,6 +2,8 @@
 const baseUrl = "https://api.mymemory.translated.net";
 const method = "get";
 const containerClassName = "translate-container-qwsfrfgfewq";
+const paragraphClassName = "translate-paragraph"
+const listClassName = "translate-list"
 let to = "";
 let from = "";
 
@@ -26,8 +28,24 @@ function constructContainer(coords) {
 };
 
 function constructData(matches){
-    const results = matches.map(item=>item.translation)
-    return results.join("/")
+    const div = document.createElement("div");
+    const ul = document.createElement("ul");
+    ul.classList.add(listClassName);
+    const p = document.createElement("p");
+    matches.forEach((item, index)=>{
+        const { translation } = item
+        if(index === 0){
+            p.classList.add(paragraphClassName);
+            p.textContent = translation
+            div.append(p)
+        } else {
+            const li = document.createElement("li");
+            li.textContent = translation
+            ul.append(li)
+        }
+    })
+    div.append(ul);
+    return div
 }
 
 async function gen(text, coords, get, set) {
@@ -39,7 +57,7 @@ async function gen(text, coords, get, set) {
     try {
         const response = await fetch(getRequestUrl(method, text, get, set));
         const result = await response.json();
-        element.textContent = constructData(result.matches);
+        element.append(constructData(result.matches))
     } catch (error) {
         console.error(error);
     }
