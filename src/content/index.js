@@ -25,11 +25,6 @@ function constructContainer(coords) {
     return element
 };
 
-function constructData(matches){
-    const results = matches.map(item=>item.translation)
-    return results.join("/")
-}
-
 async function gen(text, coords, get, set) {
     const element = constructContainer(coords)
     document.body.append(element);
@@ -39,7 +34,7 @@ async function gen(text, coords, get, set) {
     try {
         const response = await fetch(getRequestUrl(method, text, get, set));
         const result = await response.json();
-        element.textContent = constructData(result.matches);
+        element.textContent = result.responseData.translatedText;
     } catch (error) {
         console.error(error);
     }
