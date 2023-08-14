@@ -66,12 +66,14 @@ function selectHandler(e){
 
         document.addEventListener("mouseup", selectHandler)
         document.addEventListener("mousedown", removeContainer)
+        document.addEventListener("keydown", removeContainer)
     })
 
     chrome.storage.onChanged.addListener(()=>{
         console.log("changing")
         document.removeEventListener("mouseup", selectHandler)
         document.removeEventListener("mousedown", removeContainer)
+        document.removeEventListener("keydown", removeContainer)
         chrome.storage.local.get("languages").then(data=>{
             console.log("changed")
             from = data.languages.from;
@@ -80,6 +82,7 @@ function selectHandler(e){
     
             document.addEventListener("mouseup", selectHandler)
             document.addEventListener("mousedown", removeContainer)
+            document.addEventListener("keydown", removeContainer)
         })
     })
 
